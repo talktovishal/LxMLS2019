@@ -169,9 +169,9 @@ class NumpyMLP(MLP):
         z2 = np.dot(self.a1, self.w2) + self.b2
         self.a2 = sigmoid(z2)
 
-        Derivates for back-propogation:
+        Derivatives for back-propagation:
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Let CLost = Cross Entropy loss. We want to use this loss and backpropogate and adjust
+        Let C = Cross Entropy loss. We want to use this loss and back propagate and adjust
         the weights aka parameters of our model.
 
         1. You need to start from the last layer. Hence start with w2, b2
@@ -185,14 +185,14 @@ class NumpyMLP(MLP):
             a2 = softmax(z2)
             dz2/dw2 = a2
             da2/dz2 = my_softmax_derivative(z2)
-            dC/da2  = cost function derivative(a2) => the model code already calcualtes this for us.
+            dC/da2  = cost function derivative(a2) => the model code already calculates this for us.
 
             Let, a2_delta be the product of the terms below:
                        dC    da2
             a2_delta = --- . --- 
                        da2   dz2
 
-            Note, a2_delta = error in the current code (the error-derivate to be propagated)
+            Note, a2_delta = error in the current code (the error-derivative to be propagated)
 
             dC     
             ---  = a2_delta . a2            (1)
